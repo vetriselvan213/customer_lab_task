@@ -73,7 +73,7 @@ function App() {
     console.log("Payload:", payload);
 
     try {
-      await fetch("http://localhost:4000/api/save-segment", {
+      await fetch("https://customer-lab-task.onrender.com/api/save-segment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
