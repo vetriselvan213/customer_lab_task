@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import cors from "cors";
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 const WEBHOOK_URL = "https://webhook.site/5f9836e0-1184-48c5-9631-a46a40580b67";
@@ -28,3 +28,4 @@ const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Express API running at http://localhost:${PORT}`);
 });
+
