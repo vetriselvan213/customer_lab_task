@@ -121,7 +121,7 @@ function App() {
 
 
         <div className="drawer-content">
-          <p>Enter the Name of the Segment</p>
+          <p style={{ color: "black" }}>Enter the Name of the Segment</p>
           <input
             type="text"
             placeholder="Enter segment name"
