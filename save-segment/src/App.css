@@ -1,0 +1,115 @@
+.App {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 12px;
+}
+
+/* Backdrop with blur */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+/* Drawer styles */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -30%;
+  height: 100%;
+  width: 30%;
+  max-width: 400px;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  transition: right 0.4s ease-in-out;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column; 
+}
+
+.drawer.open {
+  right: 0; 
+}
+
+.drawer-content {
+  flex: 1;                
+  overflow-y: auto;       
+  padding: 20px;
+}
+
+.drawer-content input,
+.drawer-content select {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+}
+.drawer-content input{
+  width:calc(100% - 20px);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.schema-row {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.schema-row select {
+  flex: 1;
+}
+
+.remove-btn {
+  margin-left: 8px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.remove-btn:hover {
+  background: #d9363e;
+}
+
+.drawer-footer {
+  padding: 12px 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  background: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.drawer-footer button {
+  padding: 8px 14px;
+}
+
+/* Responsive*/
+@media (max-width: 768px) {
+  .drawer {
+    width: 100%;
+    right: -100%;
+  }
+  .drawer.open {
+    right: 0;
+  }
+}
