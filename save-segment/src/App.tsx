@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Spinner from "./Spinner";
 
 interface SchemaOption {
   label: string;
@@ -22,6 +23,7 @@ function App() {
   const [selectedSchemas, setSelectedSchemas] = useState<string[]>([]);
   const [currentSchema, setCurrentSchema] = useState("");
   const [error, setError] = useState("");
+   const [loading, setLoading] = useState(false);
 
   const resetForm = () => {
     setSegmentName("");
@@ -72,6 +74,8 @@ function App() {
 
     console.log("Payload:", payload);
 
+    setLoading(true);
+
     try {
       await fetch("https://customer-lab-task.onrender.com/api/save-segment", {
         method: "POST",
@@ -83,6 +87,8 @@ function App() {
       resetForm();
     } catch (error) {
       console.error("Error saving segment:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -96,6 +102,10 @@ function App() {
   );
 
   return (
+     <>
+      {loading ? (
+        <Spinner />
+      ) : (
     <div className="App">
       <button onClick={() => setShowPopup(true)}>Save segment</button>
 
@@ -209,6 +219,8 @@ function App() {
         </div>
       </div>
     </div>
+         )}
+    </>
   );
 }
 
